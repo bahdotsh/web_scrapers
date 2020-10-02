@@ -1,10 +1,13 @@
+# A scraper to get the movies listed 8.5 and above on imdb
+
 import requests
 from bs4 import BeautifulSoup
 
 URL = "https://www.imdb.com/chart/top/"
 
+# user your user-agent here
 header = {
-    "User-Agent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+    "User-Agent": 
 }
 
 page = requests.get(URL, headers=header)
