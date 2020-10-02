@@ -1,17 +1,16 @@
 # A scraper to get the movies listed 8.5 and above on imdb
-
-import requests
+from urllib.request import urlopen as uop
 from bs4 import BeautifulSoup
 
 URL = "https://www.imdb.com/chart/top/"
 
-# user your user-agent here
-header = {
-    "User-Agent": 
-}
 
-page = requests.get(URL, headers=header)
-soup = BeautifulSoup(page.content, 'html.parser')
+uClient = uop(URL)
+page = uClient.read()
+uClient.close()
+
+
+soup = BeautifulSoup(page, 'html.parser')
 
 
 movies = soup.find("table", {"class": "chart full-width"}).find_all("tr")
